@@ -1,3 +1,4 @@
+import { toUnicode } from "punycode";
 import { createLogicalOr } from "typescript";
 
 // const message: string = "hello world";
@@ -102,3 +103,17 @@ const getUser: IGetUser = (n) => {
 };
 
 getUser("Hello");
+
+interface Todo {
+  title: string;
+  description: string;
+}
+
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+  return { ...toUnicode, ...fieldsToUpdate };
+}
+
+const todo1 = {
+  title: "organize desk",
+  description: "clear clutter",
+};
